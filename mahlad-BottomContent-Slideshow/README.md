@@ -1,3 +1,3 @@
 mahlad-BottomContent-Slideshow
 ==============================
-$mkdir ~/Hello-World
+This is the second version of 
