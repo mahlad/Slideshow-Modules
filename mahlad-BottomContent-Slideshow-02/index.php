@@ -3,9 +3,9 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Bottom Text Slideshow</title>
-	<link rel="stylesheet" type="text/css" href="../../reset.css">
+	<link rel="stylesheet" type="text/css" href="../reset.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript"src="../../zepto.js"></script>
+	<script type="text/javascript"src="../zepto.js"></script>
 	<script type="text/javascript" src="script/bottom-slide.js"></script>
 </head>
 
