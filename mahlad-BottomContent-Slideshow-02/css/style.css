@@ -50,7 +50,7 @@ div.sl-btm div.sl-btm-next, div.sl-btm div.sl-btm-prev{
 	height:30px;
 	top:130px;
 	cursor:pointer;
-	display: none;
+	display: block;
 }
 div.sl-btm div.sl-btm-next{
 	right:0;	

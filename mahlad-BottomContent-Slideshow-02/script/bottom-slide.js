@@ -1,50 +1,45 @@
 // Bottom Text Slideshow JavaScript
-/*$(function(){	
-	var slideshow=$('div.sl-btm'),
-		slImg=$('div.sl-btm-img'),
+$(function(){	
+	var slideshow=$('div.sl-btm div.sl-btm-img'),
+		allSlides=$('div.sl-btm-img img'),
 		slNext=$('div.sl-btm div.sl-btm-next'),
 		slPrev=$('div.sl-btm div.sl-btm-prev'),
 		slText=$('div.sl-btm-text'),
-		totalImg=$('div.sl-btm-img img').length,
-		curentSlide=0;
+		curentSlide=0,
+		autoplayID=false;
 	//alert((-600*curentSlide)+'px');
 	go2slide=function(n){
-		if(n>totalImg-1)n=0;
-		else
-		if(n<0)n=totalImg-1;
-		slImg.css('left',-600*n+'px');
-		slText.css('left',-600*n+'px');
+		if(n>allSlides.length-1)n=0;
+		if(n<0)n=allSlides.length-1;
+		slideshow.animate({
+			left:-600*n
+		},500,'ease-in-out');
+		slText.animate({
+			left:-600*n
+		},500,'ease-in-out');
+		// slImg.css('left',-600*n+'px');
+		// slText.css('left',-600*n+'px');
 		curentSlide=n;
-		//alert(curentSlide);
-
 	};
-	nextSlide=function(){
+	$('div.sl-btm div.sl-btm-next').click(nextSlide=function(){
 		go2slide(curentSlide+1);
-	};
-	prevSlide=function(){
+	});
+	slPrev.click(prevSlide=function(){
 		go2slide(curentSlide-1);
-	};
-	var timer=false;
-	slideshow.mouseout(function(){
-		timer=setInterval(nextSlide,3000);
-		slNext.css('display','none');
-		slPrev.css('display','none');
-		if(timer)return;
-
 	});
-	slideshow.mouseover(function(){
-		clearInterval(timer);
-		timer=false;
-		slNext.css('display','block');
-		slPrev.css('display','block');
-	});
-	slNext.click(function(){
-		nextSlide();
-	});
-	slPrev.click(function(){
-		prevSlide();
-	});
-});*/
+	(startAuto=function(){
+		if(autoplayID)return;
+		autoplayID=setInterval(nextSlide,2000);
+	})();
+	stopAuto=function(){
+		clearInterval(autoplayID);
+		autoplayID=false;
+	}
+	$('div.sl-btm div.sl-btm-img').mouseout(startAuto);
+	$('div.sl-btm div.sl-btm-img').mouseover(stopAuto);
+});
+/*_-_-_-_-_-_-_-with javascript-_-_-_-_-_-_-_*/
+/*
 window.onload=function(){
 	var slideshow=document.getElementsByClassName('sl-btm').item(0),
 		listImg=slideshow.getElementsByClassName('sl-btm-img').item(0),
@@ -81,4 +76,4 @@ window.onload=function(){
 		document.getElementsByClassName('sl-btm-next').item(0).onclick=nextSlide;
 		document.getElementsByClassName('sl-btm-prev').item(0).onclick=prevSlide;
 			
-}
+}*/
